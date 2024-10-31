@@ -28,20 +28,20 @@ def useKernel(params: LLMParams) -> LLM:
 
 def useLLMRequestQueue() -> tuple[LLMRequestQueue, QueueGetMessage, QueueAddMessage, QueueCheckEmpty]:
     r_str = generate_random_string()
-    _ = LLMRequestQueue()
+    RQ = LLMRequestQueue()
 
-    QueueStore.LLM_REQUEST_QUEUE[r_str] = _
+    QueueStore.LLM_REQUEST_QUEUE[r_str] = RQ
 
     def getMessage():
-        return QueueStore.getMessage(_)
+        return QueueStore.getMessage(RQ)
 
     def addMessage(message: str):
-        return QueueStore.addMessage(_, message)
+        return QueueStore.addMessage(RQ, message)
 
     def isEmpty():
-        return QueueStore.isEmpty(_)
+        return QueueStore.isEmpty(RQ)
 
-    return _, getMessage, addMessage, isEmpty
+    return RQ, getMessage, addMessage, isEmpty
 
 
 @validate(SchedulerParams)

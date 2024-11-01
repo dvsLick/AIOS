@@ -2,7 +2,9 @@
 
 Web Quickstart
 ==============
-Be sure to complete the :ref:`aios_installation` before continuing with this guide.
+Be sure to complete the :ref:`installation instructions`_ before continuing with this guide.
+
+.. _installation instructions: aios_installaion
 
 Requirements
 ------------
